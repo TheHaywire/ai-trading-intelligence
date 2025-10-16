@@ -1,0 +1,191 @@
+instant_funding:
+  625:
+    fx: 0.25
+    commodities: 0.02
+    indices: 0.12
+    crypto: 0.05
+  1250:
+    fx: 0.5
+    commodities: 0.04
+    indices: 0.25
+    crypto: 0.1
+  2500:
+    fx: 1
+    commodities: 0.08
+    indices: 0.5
+    crypto: 0.25
+  5000:
+    fx: 2
+    commodities: 0.15
+    indices: 1
+    crypto: 0.5
+  10000:
+    fx: 4
+    commodities: 0.3
+    indices: 2
+    crypto: 1
+  20000:
+    fx: 8
+    commodities: 0.6
+    indices: 4
+    crypto: 2
+  40000:
+    fx: 16
+    commodities: 1.2
+    indices: 8
+    crypto: 4
+  80000:
+    fx: 32
+    commodities: 2.4
+    indices: 16
+    crypto: 8
+  120000:
+    fx: 48
+    commodities: 3.6
+    indices: 24
+    crypto: 12
+
+instant_funding_micro:
+  5000:
+    fx: 2
+    commodities: 0.15
+    indices: 1
+    crypto: 0.5
+  10000:
+    fx: 4
+    commodities: 0.3
+    indices: 2
+    crypto: 1
+  25000:
+    fx: 10
+    commodities: 0.75
+    indices: 5
+    crypto: 2.5
+  50000:
+    fx: 20
+    commodities: 1.5
+    indices: 10
+    crypto: 5
+  100000:
+    fx: 40
+    commodities: 3
+    indices: 20
+    crypto: 10
+  200000:
+    fx: 80
+    commodities: 6
+    indices: 40
+    crypto: 20
+
+one_phase:
+  5000:
+    fx: 2
+    commodities: 0.15
+    indices: 1
+    crypto: 0.5
+  10000:
+    fx: 4
+    commodities: 0.3
+    indices: 2
+    crypto: 1
+  25000:
+    fx: 10
+    commodities: 0.75
+    indices: 5
+    crypto: 2.5
+  50000:
+    fx: 20
+    commodities: 1.5
+    indices: 10
+    crypto: 5
+  100000:
+    fx: 40
+    commodities: 3
+    indices: 20
+    crypto: 10
+  200000:
+    fx: 80
+    commodities: 6
+    indices: 40
+    crypto: 20
+
+one_phase_micro:
+  5000:
+    fx: 2
+    commodities: 0.15
+    indices: 1
+    crypto: 0.5
+  10000:
+    fx: 4
+    commodities: 0.3
+    indices: 2
+    crypto: 1
+  25000:
+    fx: 10
+    commodities: 0.75
+    indices: 5
+    crypto: 2.5
+
+two_phase:
+  5000:
+    fx: 2
+    commodities: 0.15
+    indices: 1
+    crypto: 0.5
+  10000:
+    fx: 4
+    commodities: 0.3
+    indices: 2
+    crypto: 1
+  25000:
+    fx: 10
+    commodities: 0.75
+    indices: 5
+    crypto: 2.5
+  50000:
+    fx: 20
+    commodities: 1.5
+    indices: 10
+    crypto: 5
+  100000:
+    fx: 40
+    commodities: 3
+    indices: 20
+    crypto: 10
+  200000:
+    fx: 80
+    commodities: 6
+    indices: 40
+    crypto: 20
+
+two_phase_max:
+  5000:
+    fx: 2
+    commodities: 0.15
+    indices: 1
+    crypto: 0.5
+  10000:
+    fx: 4
+    commodities: 0.3
+    indices: 2
+    crypto: 1
+  25000:
+    fx: 10
+    commodities: 0.75
+    indices: 5
+    crypto: 2.5
+  50000:
+    fx: 20
+    commodities: 1.5
+    indices: 10
+    crypto: 5
+  100000:
+    fx: 40
+    commodities: 3
+    indices: 20
+    crypto: 10
+  200000:
+    fx: 80
+    commodities: 6
+    indices: 40
+    crypto: 20

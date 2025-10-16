@@ -1,0 +1,89 @@
+===============================================================================
+                      TRADING SYSTEM - QUICK REFERENCE
+===============================================================================
+
+All commands use: python trade.py <command>
+
+-------------------------------------------------------------------------------
+BASIC COMMANDS
+-------------------------------------------------------------------------------
+
+status              Show account status, positions, P&L
+scan                Scan markets and execute trades
+diagnostic          Run full health check
+market              Get market overview
+close-losers        Close all losing positions
+close-all           Close ALL positions (asks confirmation)
+gold-analysis       Analyze Gold reversal probability
+ai-analysis         Deep AI analysis of all positions
+help                Show all commands
+
+-------------------------------------------------------------------------------
+EXAMPLES
+-------------------------------------------------------------------------------
+
+Check account status:
+  python trade.py status
+
+Scan and trade:
+  python trade.py scan
+
+Run diagnostic:
+  python trade.py diagnostic
+
+Close losers:
+  python trade.py close-losers
+
+-------------------------------------------------------------------------------
+ARCHITECTURE
+-------------------------------------------------------------------------------
+
+PropShop- IF/
+├── trade.py              # Main command center
+├── core/                 # Reusable libraries
+│   ├── config.py         # Settings
+│   ├── mt5_service.py    # Trading operations
+│   ├── email_service.py  # Email functions
+│   └── analysis.py       # Technical indicators
+└── commands/             # Individual commands
+
+-------------------------------------------------------------------------------
+SETTINGS (core/config.py)
+-------------------------------------------------------------------------------
+
+RISK_PER_TRADE = 0.005      # 0.5% risk per trade
+MAX_POSITIONS = 5            # Maximum open positions
+MIN_CONFIDENCE = 75          # Minimum setup confidence
+ATR_STOP_MULTIPLIER = 2.0    # Stop loss width
+ATR_TARGET_MULTIPLIER = 3.0  # Take profit width
+
+-------------------------------------------------------------------------------
+KEY IMPROVEMENTS
+-------------------------------------------------------------------------------
+
+✓ No counter-trend trading (only trades WITH trend)
+✓ Reduced risk (0.5% per trade, was 1%)
+✓ Wider stops (2.0x ATR, was 1.5x)
+✓ Position limits enforced (5 max)
+✓ Beautiful email reports
+✓ Modular, reusable code
+✓ Simple command interface
+
+-------------------------------------------------------------------------------
+TYPICAL WORKFLOW
+-------------------------------------------------------------------------------
+
+Morning:
+  python trade.py status
+  python trade.py diagnostic
+  python trade.py scan
+
+Problem Solving:
+  python trade.py diagnostic
+  python trade.py ai-analysis
+  python trade.py close-losers
+
+Quick Check:
+  python trade.py status
+
+===============================================================================
