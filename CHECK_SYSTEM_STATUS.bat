@@ -5,30 +5,54 @@ color 0A
 :menu
 cls
 echo ================================================================================
-echo     AUTONOMOUS TRADING REPORTS - SYSTEM STATUS
+echo     COMPLETE TRADING INTELLIGENCE - SYSTEM STATUS
 echo ================================================================================
 echo.
 
-REM Check if process is running
-tasklist /fi "imagename eq pythonw.exe" 2>NUL | find /i "pythonw.exe" >NUL
-if "%ERRORLEVEL%"=="0" (
-    echo Status: [RUNNING] System is active
+REM Count pythonw processes
+for /f %%i in ('tasklist /fi "imagename eq pythonw.exe" 2^>NUL ^| find /c "pythonw.exe"') do set PROCESS_COUNT=%%i
+
+if %PROCESS_COUNT% GTR 0 (
+    echo Running Processes: [%PROCESS_COUNT%] Active
     echo.
+    if %PROCESS_COUNT% EQU 2 (
+        echo   [✓] COMPLETE SYSTEM Running (Scheduled + Alerts)
+    ) else (
+        echo   [!] Partial System Running (%PROCESS_COUNT%/2 systems)
+    )
 ) else (
-    echo Status: [STOPPED] System is not running
-    echo.
+    echo Status: [STOPPED] No systems running
+)
+echo.
+
+echo ================================================================================
+echo     SYSTEM COMPONENTS
+echo ================================================================================
+echo.
+
+REM Check Scheduled Reports Task
+schtasks /query /tn "TradingReports_Scheduled" >NUL 2>&1
+if "%ERRORLEVEL%"=="0" (
+    echo [1] Scheduled Reports: [CONFIGURED]
+    for /f "tokens=*" %%i in ('schtasks /query /tn "TradingReports_Scheduled" /fo list ^| findstr "Status:"') do echo     %%i
+) else (
+    echo [1] Scheduled Reports: [NOT CONFIGURED]
 )
 
-REM Check scheduled task
+REM Check Real-Time Alerts Task
+schtasks /query /tn "TradingReports_RealTimeAlerts" >NUL 2>&1
+if "%ERRORLEVEL%"=="0" (
+    echo [2] Real-Time Alerts: [CONFIGURED]
+    for /f "tokens=*" %%i in ('schtasks /query /tn "TradingReports_RealTimeAlerts" /fo list ^| findstr "Status:"') do echo     %%i
+) else (
+    echo [2] Real-Time Alerts: [NOT CONFIGURED]
+)
+
+REM Check legacy task
 schtasks /query /tn "TradingReports_Autonomous" >NUL 2>&1
 if "%ERRORLEVEL%"=="0" (
-    echo Scheduled Task: [EXISTS] Configured for auto-start
     echo.
-    for /f "tokens=*" %%i in ('schtasks /query /tn "TradingReports_Autonomous" /fo list ^| findstr "Status:"') do echo Task %%i
-    echo.
-    for /f "tokens=*" %%i in ('schtasks /query /tn "TradingReports_Autonomous" /fo list ^| findstr "Next Run Time:"') do echo %%i
-) else (
-    echo Scheduled Task: [NOT CONFIGURED] Use SETUP_AUTONOMOUS_NOW.bat
+    echo [Legacy] Old Autonomous Task: [EXISTS] (can be deleted)
 )
 
 echo.
